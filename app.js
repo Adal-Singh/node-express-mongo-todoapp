@@ -6,11 +6,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./model/db');
 var todonote = require('./model/todonote');
+var users = require('./model/users');
+var comments = require('./model/comments');
 
 var index = require('./routes/index');
 var usdtoinr = require('./routes/usdtoinr');
 var file = require('./routes/file');
 var todo = require('./routes/todo');
+
+var users = require('./routes/users');
+var comments = require('./routes/comments');
 
 var app = express();
 
@@ -30,6 +35,9 @@ app.use('/', index);
 app.use('/usdToInr', usdtoinr);
 app.use('/file', file);
 app.use('/todo', todo);
+
+app.use('/users', users);
+app.use('/comments', comments);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
